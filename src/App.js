@@ -16,19 +16,14 @@ import SettingsContainer from './containers/SettingsContainer';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
+    // display: 'flex',
   },
   grow: {
     flexGrow: 1,
   },
   content: {
-    flexGrow: 1,
+    // flexGrow: 1,
     padding: theme.spacing.unit * 3,
-    // transition: theme.transitions.create('margin', {
-    //   easing: theme.transitions.easing.sharp,
-    //   duration: theme.transitions.duration.leavingScreen,
-    // }),
-    // marginRight: -drawerWidth,
   },
 });
 
@@ -39,11 +34,11 @@ class App extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
-          position="fixed"
+          position="static"
         >
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              感染拡大シミュレーター
+              感染症流行シミュレーター
             </Typography>
             <Tooltip title="View source on Github" aria-label="View source on Github">
               <IconButton
@@ -57,10 +52,7 @@ class App extends Component {
         </AppBar>
 
         <main className={classes.content}>
-        <Typography gutterBottom>
-          Population
-        </Typography>
-          <Settings />
+        <Settings />
         </main>
       </div>
     );

@@ -5,10 +5,14 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 
-const styles = theme => ({});
+const styles = theme => ({
+  root: {
+    width: 400,
+  },
+});
 
-function valuetext(value) {
-  return 10**value;
+function valueLabelFormat(value) {
+  return `10^${value}`;
 }
 
 class Settings extends Component {
@@ -18,22 +22,46 @@ class Settings extends Component {
     beta: 0.5,
   };
   render() {
-    // const { classes } = this.props;
+    const { classes } = this.props;
     return (
-      <React.Fragment>
+      <div className={classes.root}>
         <Typography gutterBottom>
-          Population
+          人口
         </Typography>
         <Slider
           defaultValue={this.state.population}
-          getAriaValueText={valuetext}
+          valueLabelFormat={valueLabelFormat}
           aria-labelledby="population-slider"
-          valueLabelDisplay="on"
+          valueLabelDisplay="auto"
+          marks
           min={1}
           step={1}
           max={8}
         />
-      </React.Fragment>
+        <Typography gutterBottom>
+          感染能力のある期間（日）
+        </Typography>
+        <Slider
+          defaultValue={this.state.duration}
+          aria-labelledby="duration-slider"
+          valueLabelDisplay="auto"
+          marks
+          min={1}
+          step={1}
+          max={7}
+        />
+        <Typography gutterBottom>
+          感染率（１人が１日に感染させる人数）
+        </Typography>
+        <Slider
+          defaultValue={this.state.beta}
+          aria-labelledby="beta-slider"
+          valueLabelDisplay="auto"
+          min={0}
+          step={0.01}
+          max={2}
+        />
+      </div>
     );
   }
 }
