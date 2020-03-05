@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import logo from './logo.svg';
-// import './App.css';
-
 // import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,12 +11,24 @@ import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
 
+import Settings from './components/Settings';
+import SettingsContainer from './containers/SettingsContainer';
+
 const styles = theme => ({
   root: {
     display: 'flex',
   },
   grow: {
     flexGrow: 1,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    // transition: theme.transitions.create('margin', {
+    //   easing: theme.transitions.easing.sharp,
+    //   duration: theme.transitions.duration.leavingScreen,
+    // }),
+    // marginRight: -drawerWidth,
   },
 });
 
@@ -30,7 +39,7 @@ class App extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
-          position="static"
+          position="fixed"
         >
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.grow}>
@@ -39,21 +48,24 @@ class App extends Component {
             <Tooltip title="View source on Github" aria-label="View source on Github">
               <IconButton
                 color="inherit"
-                href="https://github.com/nejiko96/redux-minesweeper"
+                href="https://github.com/nejiko96/react-sir-model"
               >
                 <GithubCircle fontSize="large" />
               </IconButton>
             </Tooltip>
           </Toolbar>
         </AppBar>
-        <main>
 
+        <main className={classes.content}>
+        <Typography gutterBottom>
+          Population
+        </Typography>
+          <Settings />
         </main>
       </div>
     );
   }
 }
-
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
