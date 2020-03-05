@@ -12,17 +12,16 @@ import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
 
 import Settings from './components/Settings';
-import SettingsContainer from './containers/SettingsContainer';
+// import SettingsContainer from './containers/SettingsContainer';
+import Chart from './components/Chart';
 
 const styles = theme => ({
   root: {
-    // display: 'flex',
   },
   grow: {
     flexGrow: 1,
   },
   content: {
-    // flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
 });
@@ -50,9 +49,9 @@ class App extends Component {
             </Tooltip>
           </Toolbar>
         </AppBar>
-
         <main className={classes.content}>
-        <Settings />
+          <Settings />
+          <Chart />
         </main>
       </div>
     );

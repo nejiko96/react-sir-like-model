@@ -11,15 +11,11 @@ const styles = theme => ({
   },
 });
 
-function valueLabelFormat(value) {
-  return `10^${value}`;
-}
-
 class Settings extends Component {
   state = {
     population: 4,
     duration: 3,
-    beta: 0.5,
+    beta: 1.0,
   };
   render() {
     const { classes } = this.props;
@@ -30,7 +26,7 @@ class Settings extends Component {
         </Typography>
         <Slider
           defaultValue={this.state.population}
-          valueLabelFormat={valueLabelFormat}
+          valueLabelFormat={(v) => `10^${v}`}
           aria-labelledby="population-slider"
           valueLabelDisplay="auto"
           marks
@@ -39,7 +35,7 @@ class Settings extends Component {
           max={8}
         />
         <Typography gutterBottom>
-          感染能力のある期間（日）
+          感染させる能力が続く期間（日）
         </Typography>
         <Slider
           defaultValue={this.state.duration}
