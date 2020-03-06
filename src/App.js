@@ -40,7 +40,7 @@ class App extends Component {
             <Tooltip title="View source on Github" aria-label="View source on Github">
               <IconButton
                 color="inherit"
-                href="https://github.com/nejiko96/react-sir-model"
+                href="https://github.com/nejiko96/react-sir-like-model"
               >
                 <GithubCircle fontSize="large" />
               </IconButton>
