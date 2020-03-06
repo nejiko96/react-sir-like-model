@@ -2,20 +2,18 @@ import * as actionTypes from '../utils/actionTypes';
 import * as model from '../models/proto'
 
 const initialState = {
-  params: {
-    population: 4,
-    duration: 3,
-    beta: 0.5,
-  },
-  chart: [],
+  params: model.DEFAULT_PARAM,
+  chart: model.genChart(),
 };
 
 const reducer = (state = initialState, action) => {
   if (action.type === actionTypes.PARAMS_CHANGE) {
     return {
-      ...state,
+      params: action.params,
       chart: model.genChart(action.params)
-    }
+    };
+  } else {
+    return state;
   }
 };
 

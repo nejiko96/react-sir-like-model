@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
-// import { onThemeChange, onLangChange, onSizeChange } from '../actions';
+import { onParamsChange } from '../actions';
 
 import Settings from '../components/Settings';
 
+const mapState = (state, ownProps) => ({
+  params: state.params
+});
+
 const mapDispatch = {
-  // onThemeChange,
-  // onLangChange,
-  // onSizeChange
+  onParamsChange,
 };
 
 export default connect(
-  null,
+  mapState,
   mapDispatch
 )(Settings)

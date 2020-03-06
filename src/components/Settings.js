@@ -12,54 +12,72 @@ const styles = theme => ({
 });
 
 class Settings extends Component {
-  state = {
-    population: 4,
-    duration: 3,
-    beta: 1.0,
-  };
   render() {
-    const { classes } = this.props;
+    const { classes, params} = this.props;
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          人口
+          全体の人数
         </Typography>
         <Slider
-          defaultValue={this.state.population}
+          defaultValue={params.population}
           valueLabelFormat={(v) => `10^${v}`}
           aria-labelledby="population-slider"
           valueLabelDisplay="auto"
-          marks
           min={1}
-          step={1}
-          max={8}
+          step={0.1}
+          max={10}
+          onChange={this.handlePopulationChange}
         />
         <Typography gutterBottom>
-          感染させる能力が続く期間（日）
+          感染能力がある期間（日）
         </Typography>
         <Slider
-          defaultValue={this.state.duration}
+          defaultValue={params.duration}
           aria-labelledby="duration-slider"
           valueLabelDisplay="auto"
           marks
           min={1}
           step={1}
-          max={7}
+          max={15}
+          onChange={this.handleDurationChange}
         />
         <Typography gutterBottom>
-          感染率（１人が１日に感染させる人数）
+          感染率（１日に１人から感染する人数）
         </Typography>
         <Slider
-          defaultValue={this.state.beta}
+          defaultValue={params.beta}
           aria-labelledby="beta-slider"
           valueLabelDisplay="auto"
           min={0}
           step={0.01}
           max={2}
+          onChange={this.handleBetaChange}
         />
       </div>
     );
   }
+
+  handlePopulationChange = (_ev, population) => {
+    this.props.onParamsChange({
+      ...this.props.params,
+      population
+    });
+  };
+
+  handleDurationChange = (_ev, duration) => {
+    this.props.onParamsChange({
+      ...this.props.params,
+      duration
+    });
+  };
+
+  handleBetaChange = (_ev, beta) => {
+    this.props.onParamsChange({
+      ...this.props.params,
+      beta
+    });
+  };
 }
 
 export default withStyles(styles)(Settings);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -11,9 +10,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
 
-import Settings from './components/Settings';
-// import SettingsContainer from './containers/SettingsContainer';
-import Chart from './components/Chart';
+import SettingsContainer from './containers/SettingsContainer';
+import ChartContainer from './containers/ChartContainer';
 
 const styles = theme => ({
   root: {
@@ -22,7 +20,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   content: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing(3),
   },
 });
 
@@ -50,8 +48,8 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         <main className={classes.content}>
-          <Settings />
-          <Chart />
+          <SettingsContainer />
+          <ChartContainer />
         </main>
       </div>
     );

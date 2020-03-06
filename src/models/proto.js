@@ -1,5 +1,10 @@
+export const DEFAULT_PARAM = {
+  population: 4,
+  duration: 3,
+  beta: 1,
+};
 
-export const genChart = (params) => {
+export const genChart = (params = DEFAULT_PARAM) => {
   const N = Math.pow(10, params.population);
   const D = params.duration;
   const B = params.beta;
@@ -28,7 +33,7 @@ export const genChart = (params) => {
       recovered
     });
     if (infected < 0.5) break;
-    nxt = B * infected * susceptable / N;
-    return chart;
+    nxt = Math.min(B * infected * susceptable / N, susceptable);
   }
+  return chart;
 };
