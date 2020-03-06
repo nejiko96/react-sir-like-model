@@ -43,7 +43,7 @@ class Settings extends Component {
           onChange={this.handleDurationChange}
         />
         <Typography gutterBottom>
-          感染率（１日に１人から感染する人数）
+          １日に１人から感染する人数
         </Typography>
         <Slider
           defaultValue={params.beta}
@@ -79,5 +79,10 @@ class Settings extends Component {
     });
   };
 }
+
+Settings.propTypes = {
+  classes: PropTypes.object.isRequired,
+  params: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Settings);

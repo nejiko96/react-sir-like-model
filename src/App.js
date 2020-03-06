@@ -26,7 +26,7 @@ const styles = theme => ({
 
 class App extends Component {
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -58,7 +58,6 @@ class App extends Component {
 
 App.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(App);

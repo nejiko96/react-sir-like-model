@@ -49,4 +49,10 @@ class Chart extends Component {
   }
 }
 
+Chart.propTypes = {
+  classes: PropTypes.object.isRequired,
+  params: PropTypes.object.isRequired,
+  chart: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
 export default withStyles(styles)(Chart);
