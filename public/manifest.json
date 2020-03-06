@@ -1,5 +1,5 @@
 {
-  "short_name": "SIR-like model simulator",
+  "short_name": "react-sir-like-model",
   "name": "SIR-like model simulator",
   "icons": [
     {
@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://nejiko96.github.io/react-sir-like-model/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
