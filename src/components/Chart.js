@@ -16,9 +16,17 @@ const styles = theme => ({
   },
 });
 
+const getTick = (val, mag) => {
+  if (mag <= 4) return val;
+  if (val === 0) return val;
+  mag = Math.floor(mag - 0.01);
+  val /= Math.pow(10, mag);
+  return `${val}e${mag}`;
+};
+
 class Chart extends Component {
   render() {
-    const { classes, chart } = this.props;
+    const { classes, params, chart } = this.props;
     return (
       <div className={classes.root}>
         <AreaChart
@@ -27,12 +35,12 @@ class Chart extends Component {
           data={chart}
           margin={classes.margin}
         >
-          <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
+          <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
           <Area type="monotone" dataKey="infected" stackId="1" stroke="#ffc658" fill="#ffc658" />
           <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
           <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           <XAxis dataKey="day" />
-          <YAxis />
+          <YAxis tickFormatter={(v) => getTick(v, params.population)}/>
           <Legend />
           <Tooltip />
         </AreaChart>
