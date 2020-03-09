@@ -25,7 +25,7 @@ const getTick = (val, mag) => {
 };
 
 class SeirChart extends Component {
-  render () {
+  render() {
     const { classes, params, data } = this.props;
     return (
       <div className={classes.root}>

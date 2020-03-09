@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import SeirSettings from '../components/SeirSettings';
-import SeirChart from '../components/SeirChart';
+import SeirSettings from './SeirSettings';
+import SeirChart from './SeirChart';
 
 class SeirPanel extends Component {
   render () {

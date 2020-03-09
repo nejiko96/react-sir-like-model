@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MockSirSettings from '../components/MockSirSettings';
-import MockSirChart from '../components/MockSirChart';
+import MockSirSettings from './MockSirSettings';
+import MockSirChart from './MockSirChart';
 
 class MockSirPanel extends Component {
   render () {
