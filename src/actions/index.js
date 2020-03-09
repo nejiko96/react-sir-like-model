@@ -1,6 +1,11 @@
 import * as actionTypes from '../utils/actionTypes';
 
-export const onParamsChange = (params) => ({
-  type: actionTypes.PARAMS_CHANGE,
+export const onMockSirParamsChange = (params) => ({
+  type: actionTypes.MOCK_SIR_PARAMS_CHANGE,
+  params
+});
+
+export const onSeirParamsChange = (params) => ({
+  type: actionTypes.SEIR_PARAMS_CHANGE,
   params
 });

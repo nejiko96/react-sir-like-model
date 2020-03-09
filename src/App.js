@@ -10,22 +10,22 @@ import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
 
-import SettingsContainer from './containers/SettingsContainer';
-import ChartContainer from './containers/ChartContainer';
+import MockSirContainer from './containers/MockSirContainer';
+import SeirContainer from './containers/SeirContainer';
 
 const styles = theme => ({
   root: {
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   content: {
-    padding: theme.spacing(3),
-  },
+    padding: theme.spacing(3)
+  }
 });
 
 class App extends Component {
-  render() {
+  render () {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
@@ -48,8 +48,10 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         <main className={classes.content}>
-          <SettingsContainer />
-          <ChartContainer />
+          <Typography variant="h4">なんちゃってSIRモデル</Typography>
+          <MockSirContainer />
+          <Typography variant="h4">SEIRモデル</Typography>
+          <SeirContainer />
         </main>
       </div>
     );
@@ -57,7 +59,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(App);

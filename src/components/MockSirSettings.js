@@ -8,16 +8,19 @@ import Slider from '@material-ui/core/Slider';
 const styles = theme => ({
   root: {
     width: 400,
+    padding: 10,
   },
 });
 
-class Settings extends Component {
+class MockSirSettings extends Component {
+  state = this.props.params;
   render() {
-    const { classes, params} = this.props;
+    const { classes } = this.props;
+    const params = this.state;
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          全体の人数
+          人数
         </Typography>
         <Slider
           defaultValue={params.population}
@@ -59,30 +62,34 @@ class Settings extends Component {
   }
 
   handlePopulationChange = (_ev, population) => {
+    this.setState({ population });
     this.props.onParamsChange({
-      ...this.props.params,
+      ...this.state,
       population
     });
   };
 
   handleDurationChange = (_ev, duration) => {
+    this.setState({ duration });
     this.props.onParamsChange({
-      ...this.props.params,
+      ...this.state,
       duration
     });
   };
 
   handleBetaChange = (_ev, beta) => {
+    this.setState({ beta });
     this.props.onParamsChange({
-      ...this.props.params,
+      ...this.state,
       beta
     });
   };
 }
 
-Settings.propTypes = {
+MockSirSettings.propTypes = {
   classes: PropTypes.object.isRequired,
   params: PropTypes.object.isRequired,
+  onParamsChange: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Settings);
+export default withStyles(styles)(MockSirSettings);
