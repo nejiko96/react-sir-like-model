@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -52,7 +52,7 @@ class MockSirChart extends Component {
 MockSirChart.propTypes = {
   classes: PropTypes.object.isRequired,
   params: PropTypes.object.isRequired,
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default withStyles(styles)(MockSirChart);

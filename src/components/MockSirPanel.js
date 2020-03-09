@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import MockSirSettings from '../components/MockSirSettings';
@@ -25,7 +25,7 @@ class MockSirPanel extends Component {
 MockSirPanel.propTypes = {
   params: PropTypes.object.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onParamsChange: PropTypes.func.isRequired,
+  onParamsChange: PropTypes.func.isRequired
 };
 
 export default MockSirPanel;

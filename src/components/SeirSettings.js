@@ -51,9 +51,8 @@ class SeirSettings extends Component {
           defaultValue={params.latentPeriod}
           aria-labelledby="latent-period-slider"
           valueLabelDisplay="auto"
-          marks
           min={1}
-          step={1}
+          step={0.1}
           max={15}
           onChange={this.handleLatentPeriodChange}
         />
@@ -65,11 +64,10 @@ class SeirSettings extends Component {
           defaultValue={params.infectiousPeriod}
           aria-labelledby="infectious-period-slider"
           valueLabelDisplay="auto"
-          marks
           min={1}
-          step={1}
+          step={0.1}
           max={15}
-          onChange={this.handleGammaChange}
+          onChange={this.handleInfectiousPeriodChange}
         />
         <Typography gutterBottom>
           τ：死亡率

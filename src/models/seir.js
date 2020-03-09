@@ -10,8 +10,11 @@ export const genData = (params = DEFAULT_PARAM) => {
   const N = Math.pow(10, params.population);
   const B = params.beta;
   const K = 1 / params.latentPeriod;
-  const G = 1 / params.infectiousPeriod;
+  let G = 1 / params.infectiousPeriod;
   const T = params.tau;
+  if (G + T > 1) {
+    G = 1 - T;
+  }
   let susceptable = N;
   let exposed = 0;
   let infected = 0;
@@ -47,11 +50,15 @@ export const genData = (params = DEFAULT_PARAM) => {
       died
     });
     if ((exposed + infected) < 0.5) break;
-    ds = -B * infected * susceptable / N;
-    de = B * infected * susceptable / N - K * exposed;
-    di = K * exposed - G * infected - T * infected;
-    dr = G * infected;
-    dd = T * infected;
+    const tb = B * infected * susceptable / N;
+    const tk = K * exposed;
+    const tg = G * infected;
+    const tt = T * infected;
+    ds = -tb;
+    de = tb - tk;
+    di = tk - tg - tt;
+    dr = tg;
+    dd = tt;
   }
   return data;
 };
