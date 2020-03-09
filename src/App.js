@@ -13,15 +13,15 @@ import GithubCircle from 'mdi-material-ui/GithubCircle';
 import MockSirContainer from './containers/MockSirContainer';
 import SeirContainer from './containers/SeirContainer';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   content: {
-    padding: theme.spacing(3)
-  }
+    padding: theme.spacing(3),
+  },
 });
 
 class App extends Component {
@@ -59,7 +59,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(App);

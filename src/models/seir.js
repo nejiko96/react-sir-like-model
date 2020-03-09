@@ -3,11 +3,11 @@ export const DEFAULT_PARAM = {
   beta: 0.8,
   latentPeriod: 7,
   infectiousPeriod: 3,
-  tau: 0.001
+  tau: 0.001,
 };
 
 export const genData = (params = DEFAULT_PARAM) => {
-  const N = Math.pow(10, params.population);
+  const N = 10 ** params.population;
   const B = params.beta;
   const K = 1 / params.latentPeriod;
   let G = 1 / params.infectiousPeriod;
@@ -27,15 +27,15 @@ export const genData = (params = DEFAULT_PARAM) => {
       exposed,
       infected,
       recovered,
-      died
-    }
+      died,
+    },
   ];
   let ds = -1;
   let de = 0;
   let di = 1;
   let dr = 0;
   let dd = 0;
-  for (let day = 1; day <= 1000; day++) {
+  for (let day = 1; day <= 1000; day += 1) {
     susceptable += ds;
     exposed += de;
     infected += di;
@@ -47,10 +47,10 @@ export const genData = (params = DEFAULT_PARAM) => {
       exposed,
       infected,
       recovered,
-      died
+      died,
     });
     if ((exposed + infected) < 0.5) break;
-    const tb = B * infected * susceptable / N;
+    const tb = (B * infected * susceptable) / N;
     const tk = K * exposed;
     const tg = G * infected;
     const tt = T * infected;

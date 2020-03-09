@@ -8,7 +8,7 @@ class SeirPanel extends Component {
   render () {
     const { params, data, onParamsChange } = this.props;
     return (
-      <React.Fragment>
+      <fragment>
         <SeirSettings
           params={params}
           onParamsChange={onParamsChange}
@@ -17,7 +17,7 @@ class SeirPanel extends Component {
           params={params}
           data={data}
         />
-      </React.Fragment>
+      </fragment>
     );
   }
 }
@@ -25,7 +25,7 @@ class SeirPanel extends Component {
 SeirPanel.propTypes = {
   params: PropTypes.object.isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onParamsChange: PropTypes.func.isRequired
+  onParamsChange: PropTypes.func.isRequired,
 };
 
 export default SeirPanel;

@@ -3,13 +3,13 @@ import { onSeirParamsChange } from '../actions';
 
 import SeirPanel from '../components/SeirPanel';
 
-const mapState = (state, ownProps) => (state.seir);
+const mapState = (state) => (state.seir);
 
-const mapDispatch = dispatch => ({
-  onParamsChange: (params) => dispatch(onSeirParamsChange(params))
+const mapDispatch = (dispatch) => ({
+  onParamsChange: (params) => dispatch(onSeirParamsChange(params)),
 });
 
 export default connect(
   mapState,
-  mapDispatch
+  mapDispatch,
 )(SeirPanel);

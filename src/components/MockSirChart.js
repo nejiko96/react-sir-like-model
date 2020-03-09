@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
-import { AreaChart, Area, CartesianGrid, XAxis, YAxis, Legend, Tooltip } from 'recharts';
+import {
+  AreaChart, Area, CartesianGrid, XAxis, YAxis, Legend, Tooltip,
+} from 'recharts';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
-    padding: 10
+    padding: 10,
   },
   margin: {
     top: 20,
     right: 20,
     bottom: 20,
-    left: 20
-  }
+    left: 20,
+  },
 });
 
 const getTick = (val, mag) => {
   if (mag <= 4) return val;
   if (val === 0) return val;
   mag = Math.floor(mag - 0.01);
-  val /= Math.pow(10, mag);
+  val /= 10 ** mag;
   return `${val}e${mag}`;
 };
 
@@ -52,7 +54,7 @@ class MockSirChart extends Component {
 MockSirChart.propTypes = {
   classes: PropTypes.object.isRequired,
   params: PropTypes.object.isRequired,
-  data: PropTypes.arrayOf(PropTypes.object).isRequired
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withStyles(styles)(MockSirChart);

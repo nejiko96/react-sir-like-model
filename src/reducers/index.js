@@ -4,7 +4,7 @@ import seir from './seir';
 
 const reducer = combineReducers({
   mockSir,
-  seir
+  seir,
 });
 
 export default reducer;
