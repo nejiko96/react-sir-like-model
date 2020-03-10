@@ -13,17 +13,27 @@ const styles = theme => ({
 });
 
 class SeirSettings extends Component {
-  state = this.props.params;
+  state = {
+    population: 4,
+    beta: 0.8,
+    latentPeriod: 7,
+    infectiousPeriod: 3,
+    tau: 0.001,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    return props.params;
+  }
+
   render() {
     const { classes } = this.props;
-    const params = this.state;
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
           N：人数
         </Typography>
         <Slider
-          defaultValue={params.population}
+          value={this.state.population}
           valueLabelFormat={(v) => `10^${v}`}
           aria-labelledby="population-slider"
           valueLabelDisplay="auto"
@@ -36,7 +46,7 @@ class SeirSettings extends Component {
           β：伝達係数
         </Typography>
         <Slider
-          defaultValue={params.beta}
+          value={this.state.beta}
           aria-labelledby="beta-slider"
           valueLabelDisplay="auto"
           min={0}
@@ -48,7 +58,7 @@ class SeirSettings extends Component {
           lp：潜伏期間
         </Typography>
         <Slider
-          defaultValue={params.latentPeriod}
+          value={this.state.latentPeriod}
           aria-labelledby="latent-period-slider"
           valueLabelDisplay="auto"
           min={1}
@@ -61,7 +71,7 @@ class SeirSettings extends Component {
           ip：感染期間
         </Typography>
         <Slider
-          defaultValue={params.infectiousPeriod}
+          value={this.state.infectiousPeriod}
           aria-labelledby="infectious-period-slider"
           valueLabelDisplay="auto"
           min={1}
@@ -73,7 +83,7 @@ class SeirSettings extends Component {
           τ：死亡率
         </Typography>
         <Slider
-          defaultValue={params.tau}
+          value={this.state.tau}
           aria-labelledby="tau-slider"
           valueLabelDisplay="auto"
           min={0}
@@ -128,8 +138,14 @@ class SeirSettings extends Component {
 }
 
 SeirSettings.propTypes = {
-  classes: PropTypes.object.isRequired,
-  params: PropTypes.object.isRequired,
+  classes: PropTypes.shape({}).isRequired,
+  params: PropTypes.shape({
+    population: PropTypes.number.isRequired,
+    beta: PropTypes.number.isRequired,
+    latentPeriod: PropTypes.number.isRequired,
+    infectiousPeriod: PropTypes.number.isRequired,
+    tau: PropTypes.number.isRequired,
+  }).isRequired,
   onParamsChange: PropTypes.func.isRequired,
 };
 

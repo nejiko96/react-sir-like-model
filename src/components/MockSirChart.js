@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -26,35 +26,40 @@ const getTick = (val, mag) => {
   return `${val}e${mag}`;
 };
 
-class MockSirChart extends Component {
-  render() {
-    const { classes, params, data } = this.props;
-    return (
-      <div className={classes.root}>
-        <AreaChart
-          width={800}
-          height={400}
-          data={data}
-          margin={classes.margin}
-        >
-          <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
-          <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
-          <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
-          <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-          <XAxis dataKey="day" />
-          <YAxis tickFormatter={(v) => getTick(v, params.population)}/>
-          <Legend />
-          <Tooltip />
-        </AreaChart>
-      </div>
-    );
-  }
-}
+const MockSirChart = (props) => {
+  const { classes, params, data } = props;
+  return (
+    <div className={classes.root}>
+      <AreaChart
+        width={800}
+        height={400}
+        data={data}
+        margin={classes.margin}
+      >
+        <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
+        <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
+        <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
+        <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+        <XAxis dataKey="day" />
+        <YAxis tickFormatter={(v) => getTick(v, params.population)} />
+        <Legend />
+        <Tooltip />
+      </AreaChart>
+    </div>
+  );
+};
 
 MockSirChart.propTypes = {
-  classes: PropTypes.object.isRequired,
-  params: PropTypes.object.isRequired,
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  classes: PropTypes.shape({}).isRequired,
+  params: PropTypes.shape({
+    population: PropTypes.number.isRequired,
+  }).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.number.isRequired,
+    infected: PropTypes.number.isRequired,
+    susceptable: PropTypes.number.isRequired,
+    recovered: PropTypes.number.isRequired,
+  })).isRequired,
 };
 
 export default withStyles(styles)(MockSirChart);

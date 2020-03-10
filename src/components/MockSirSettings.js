@@ -13,17 +13,25 @@ const styles = theme => ({
 });
 
 class MockSirSettings extends Component {
-  state = this.props.params;
+  state = {
+    population: 4,
+    duration: 3,
+    beta: 0.5,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    return props.params;
+  }
+
   render() {
     const { classes } = this.props;
-    const params = this.state;
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
           人数
         </Typography>
         <Slider
-          defaultValue={params.population}
+          value={this.state.population}
           valueLabelFormat={(v) => `10^${v}`}
           aria-labelledby="population-slider"
           valueLabelDisplay="auto"
@@ -36,7 +44,7 @@ class MockSirSettings extends Component {
           感染能力がある期間（日）
         </Typography>
         <Slider
-          defaultValue={params.duration}
+          value={this.state.duration}
           aria-labelledby="duration-slider"
           valueLabelDisplay="auto"
           marks
@@ -49,7 +57,7 @@ class MockSirSettings extends Component {
           １日に１人から感染する人数
         </Typography>
         <Slider
-          defaultValue={params.beta}
+          value={this.state.beta}
           aria-labelledby="beta-slider"
           valueLabelDisplay="auto"
           min={0}
@@ -87,8 +95,12 @@ class MockSirSettings extends Component {
 }
 
 MockSirSettings.propTypes = {
-  classes: PropTypes.object.isRequired,
-  params: PropTypes.object.isRequired,
+  classes: PropTypes.shape({}).isRequired,
+  params: PropTypes.shape({
+    population: PropTypes.number.isRequired,
+    duration: PropTypes.number.isRequired,
+    beta: PropTypes.number.isRequired,
+  }).isRequired,
   onParamsChange: PropTypes.func.isRequired,
 };
 
