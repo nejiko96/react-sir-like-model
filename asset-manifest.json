@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/react-sir-like-model/static/js/main.f7b1b879.chunk.js",
-    "main.js.map": "/react-sir-like-model/static/js/main.f7b1b879.chunk.js.map",
+    "main.js": "/react-sir-like-model/static/js/main.d19925db.chunk.js",
+    "main.js.map": "/react-sir-like-model/static/js/main.d19925db.chunk.js.map",
     "runtime-main.js": "/react-sir-like-model/static/js/runtime-main.0f3c8866.js",
     "runtime-main.js.map": "/react-sir-like-model/static/js/runtime-main.0f3c8866.js.map",
-    "static/js/2.326c7851.chunk.js": "/react-sir-like-model/static/js/2.326c7851.chunk.js",
-    "static/js/2.326c7851.chunk.js.map": "/react-sir-like-model/static/js/2.326c7851.chunk.js.map",
+    "static/js/2.feda68a5.chunk.js": "/react-sir-like-model/static/js/2.feda68a5.chunk.js",
+    "static/js/2.feda68a5.chunk.js.map": "/react-sir-like-model/static/js/2.feda68a5.chunk.js.map",
     "index.html": "/react-sir-like-model/index.html",
-    "precache-manifest.970d9d5524e029c514ba4fa3d459531e.js": "/react-sir-like-model/precache-manifest.970d9d5524e029c514ba4fa3d459531e.js",
+    "precache-manifest.75c70c31b1f92c11d4dc4e2cf577b352.js": "/react-sir-like-model/precache-manifest.75c70c31b1f92c11d4dc4e2cf577b352.js",
     "service-worker.js": "/react-sir-like-model/service-worker.js",
-    "static/js/2.326c7851.chunk.js.LICENSE.txt": "/react-sir-like-model/static/js/2.326c7851.chunk.js.LICENSE.txt"
+    "static/js/2.feda68a5.chunk.js.LICENSE.txt": "/react-sir-like-model/static/js/2.feda68a5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0f3c8866.js",
-    "static/js/2.326c7851.chunk.js",
-    "static/js/main.f7b1b879.chunk.js"
+    "static/js/2.feda68a5.chunk.js",
+    "static/js/main.d19925db.chunk.js"
   ]
 }
