@@ -58,7 +58,11 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.shape({}),
+    grow: PropTypes.shape({}),
+    content: PropTypes.shape({}),
+  }).isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(App);

@@ -6,6 +6,8 @@ import {
   AreaChart, Area, CartesianGrid, XAxis, YAxis, Legend, Tooltip,
 } from 'recharts';
 
+import { logarithmTickFormat } from '../utils';
+
 const styles = () => ({
   root: {
     padding: 10,
@@ -17,14 +19,6 @@ const styles = () => ({
     left: 20,
   },
 });
-
-const getTick = (val, mag) => {
-  if (mag <= 4) return val;
-  if (val === 0) return val;
-  mag = Math.floor(mag - 0.01);
-  val /= 10 ** mag;
-  return `${val}e${mag}`;
-};
 
 const MockSirChart = (props) => {
   const { classes, params, data } = props;
@@ -41,7 +35,7 @@ const MockSirChart = (props) => {
         <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
         <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
         <XAxis dataKey="day" />
-        <YAxis tickFormatter={(v) => getTick(v, params.population)} />
+        <YAxis tickFormatter={(v) => logarithmTickFormat(v, params.population)} />
         <Legend />
         <Tooltip />
       </AreaChart>
@@ -50,7 +44,10 @@ const MockSirChart = (props) => {
 };
 
 MockSirChart.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.shape({}),
+    margin: PropTypes.shape({}),
+  }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,
   }).isRequired,

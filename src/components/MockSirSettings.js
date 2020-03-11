@@ -95,7 +95,9 @@ class MockSirSettings extends Component {
 }
 
 MockSirSettings.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.shape({}),
+  }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,
     duration: PropTypes.number.isRequired,

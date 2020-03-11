@@ -6,6 +6,8 @@ import {
   AreaChart, Area, CartesianGrid, XAxis, YAxis, Legend, Tooltip,
 } from 'recharts';
 
+import { logarithmTickFormat } from '../utils';
+
 const styles = () => ({
   root: {
     padding: 10,
@@ -17,14 +19,6 @@ const styles = () => ({
     left: 20,
   },
 });
-
-const getTick = (val, mag) => {
-  if (mag <= 4) return val;
-  if (val === 0) return val;
-  mag = Math.floor(mag - 0.01);
-  val /= 10 ** mag;
-  return `${val}e${mag}`;
-};
 
 const SeirChart = (props) => {
   const { classes, params, data } = props;
@@ -43,7 +37,7 @@ const SeirChart = (props) => {
         <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
         <Area type="monotone" dataKey="died" stackId="1" stroke="#cccccc" fill="#cccccc" />
         <XAxis dataKey="day" />
-        <YAxis tickFormatter={(v) => getTick(v, params.population)} />
+        <YAxis tickFormatter={(v) => logarithmTickFormat(v, params.population)} />
         <Legend />
         <Tooltip />
       </AreaChart>
@@ -52,7 +46,10 @@ const SeirChart = (props) => {
 };
 
 SeirChart.propTypes = {
-  classes: PropTypes.shape({}).isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.shape({}),
+    margin: PropTypes.shape({}),
+  }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,
   }).isRequired,
