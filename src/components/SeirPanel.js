@@ -4,21 +4,18 @@ import PropTypes from 'prop-types';
 import SeirSettings from './SeirSettings';
 import SeirChart from './SeirChart';
 
-const SeirPanel = (props) => {
-  const { params, data, onParamsChange } = props;
-  return (
-    <>
-      <SeirSettings
-        params={params}
-        onParamsChange={onParamsChange}
-      />
-      <SeirChart
-        params={params}
-        data={data}
-      />
-    </>
-  );
-};
+const SeirPanel = ({ params, data, onParamsChange }) => (
+  <>
+    <SeirSettings
+      params={params}
+      onParamsChange={onParamsChange}
+    />
+    <SeirChart
+      params={params}
+      data={data}
+    />
+  </>
+);
 
 SeirPanel.propTypes = {
   params: PropTypes.shape({}).isRequired,

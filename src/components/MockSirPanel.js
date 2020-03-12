@@ -4,21 +4,18 @@ import PropTypes from 'prop-types';
 import MockSirSettings from './MockSirSettings';
 import SirChart from './SirChart';
 
-const MockSirPanel = (props) => {
-  const { params, data, onParamsChange } = props;
-  return (
-    <>
-      <MockSirSettings
-        params={params}
-        onParamsChange={onParamsChange}
-      />
-      <SirChart
-        params={params}
-        data={data}
-      />
-    </>
-  );
-};
+const MockSirPanel = ({ params, data, onParamsChange }) => (
+  <>
+    <MockSirSettings
+      params={params}
+      onParamsChange={onParamsChange}
+    />
+    <SirChart
+      params={params}
+      data={data}
+    />
+  </>
+);
 
 MockSirPanel.propTypes = {
   params: PropTypes.shape({}).isRequired,

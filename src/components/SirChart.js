@@ -21,28 +21,26 @@ const chartMargin = {
   left: 20,
 };
 
-const SirChart = (props) => {
-  const { classes, params, data } = props;
-  return (
-    <div className={classes.root}>
-      <AreaChart
-        width={800}
-        height={400}
-        data={data}
-        margin={chartMargin}
-      >
-        <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
-        <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
-        <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
-        <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
-        <XAxis dataKey="day" />
-        <YAxis tickFormatter={(v) => logarithmTickFormat(v, params.population)} />
-        <Legend />
-        <Tooltip />
-      </AreaChart>
-    </div>
-  );
-};
+const SirChart = ({ classes, params, data }) => (
+  <div className={classes.root}>
+    <AreaChart
+      width={800}
+      height={400}
+      data={data}
+      margin={chartMargin}
+    >
+      <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
+      <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
+      <Area type="monotone" dataKey="susceptable" stackId="1" stroke="#8884d8" fill="#8884d8" />
+      <Area type="monotone" dataKey="recovered" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+      <XAxis dataKey="day" />
+      <YAxis tickFormatter={(v) => logarithmTickFormat(v, params.population)} />
+      <Legend />
+      <Tooltip />
+    </AreaChart>
+  </div>
+);
+
 
 SirChart.propTypes = {
   classes: PropTypes.shape({
