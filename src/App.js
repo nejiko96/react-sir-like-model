@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
 
 import MockSirContainer from './containers/MockSirContainer';
+import SirContainer from './containers/SirContainer';
 import SeirContainer from './containers/SeirContainer';
 
 const styles = (theme) => ({
@@ -48,8 +49,10 @@ const App = (props) => {
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
-        <Typography variant="h4">なんちゃってSIRモデル</Typography>
+        <Typography variant="h4">雑なSIRモデル</Typography>
         <MockSirContainer />
+        <Typography variant="h4">SIRモデル</Typography>
+        <SirContainer />
         <Typography variant="h4">SEIRモデル</Typography>
         <SeirContainer />
       </main>
@@ -59,9 +62,9 @@ const App = (props) => {
 
 App.propTypes = {
   classes: PropTypes.shape({
-    root: PropTypes.shape({}),
-    grow: PropTypes.shape({}),
-    content: PropTypes.shape({}),
+    root: PropTypes.string,
+    grow: PropTypes.string,
+    content: PropTypes.string,
   }).isRequired,
 };
 

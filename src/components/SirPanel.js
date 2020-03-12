@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MockSirSettings from './MockSirSettings';
+import SirSettings from './SirSettings';
 import SirChart from './SirChart';
 
-const MockSirPanel = (props) => {
+const SirPanel = (props) => {
   const { params, data, onParamsChange } = props;
   return (
     <>
-      <MockSirSettings
+      <SirSettings
         params={params}
         onParamsChange={onParamsChange}
       />
@@ -20,10 +20,10 @@ const MockSirPanel = (props) => {
   );
 };
 
-MockSirPanel.propTypes = {
+SirPanel.propTypes = {
   params: PropTypes.shape({}).isRequired,
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onParamsChange: PropTypes.func.isRequired,
 };
 
-export default MockSirPanel;
+export default SirPanel;

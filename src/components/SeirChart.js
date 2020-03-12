@@ -12,13 +12,14 @@ const styles = () => ({
   root: {
     padding: 10,
   },
-  margin: {
-    top: 20,
-    right: 20,
-    bottom: 20,
-    left: 20,
-  },
 });
+
+const chartMargin = {
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 20,
+};
 
 const SeirChart = (props) => {
   const { classes, params, data } = props;
@@ -28,7 +29,7 @@ const SeirChart = (props) => {
         width={800}
         height={400}
         data={data}
-        margin={classes.margin}
+        margin={chartMargin}
       >
         <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
         <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
@@ -47,8 +48,7 @@ const SeirChart = (props) => {
 
 SeirChart.propTypes = {
   classes: PropTypes.shape({
-    root: PropTypes.shape({}),
-    margin: PropTypes.shape({}),
+    root: PropTypes.string,
   }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,

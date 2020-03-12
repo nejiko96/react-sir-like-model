@@ -139,7 +139,7 @@ class SeirSettings extends Component {
 
 SeirSettings.propTypes = {
   classes: PropTypes.shape({
-    root: PropTypes.shape({}),
+    root: PropTypes.string,
   }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,

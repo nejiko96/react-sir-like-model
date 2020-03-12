@@ -12,11 +12,11 @@ const styles = theme => ({
   },
 });
 
-class MockSirSettings extends Component {
+class SirSettings extends Component {
   state = {
     population: 4,
-    duration: 3,
     beta: 0.5,
+    infectiousPeriod: 3,
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -28,7 +28,7 @@ class MockSirSettings extends Component {
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          人数
+          N：人数
         </Typography>
         <Slider
           value={this.state.population}
@@ -41,20 +41,7 @@ class MockSirSettings extends Component {
           onChange={this.handlePopulationChange}
         />
         <Typography gutterBottom>
-          感染能力がある期間（日）
-        </Typography>
-        <Slider
-          value={this.state.duration}
-          aria-labelledby="duration-slider"
-          valueLabelDisplay="auto"
-          marks
-          min={1}
-          step={1}
-          max={15}
-          onChange={this.handleDurationChange}
-        />
-        <Typography gutterBottom>
-          １日に１人から感染する人数
+          β：伝達係数
         </Typography>
         <Slider
           value={this.state.beta}
@@ -64,6 +51,18 @@ class MockSirSettings extends Component {
           step={0.01}
           max={2}
           onChange={this.handleBetaChange}
+        />
+        <Typography gutterBottom>
+          ip：感染期間
+        </Typography>
+        <Slider
+          value={this.state.infectiousPeriod}
+          aria-labelledby="infectious-period-slider"
+          valueLabelDisplay="auto"
+          min={1}
+          step={0.1}
+          max={15}
+          onChange={this.handleInfectiousPeriodChange}
         />
       </div>
     );
@@ -77,14 +76,6 @@ class MockSirSettings extends Component {
     });
   };
 
-  handleDurationChange = (_ev, duration) => {
-    this.setState({ duration });
-    this.props.onParamsChange({
-      ...this.state,
-      duration
-    });
-  };
-
   handleBetaChange = (_ev, beta) => {
     this.setState({ beta });
     this.props.onParamsChange({
@@ -92,18 +83,26 @@ class MockSirSettings extends Component {
       beta
     });
   };
+
+  handleInfectiousPeriodChange = (_ev, infectiousPeriod) => {
+    this.setState({ infectiousPeriod });
+    this.props.onParamsChange({
+      ...this.state,
+      infectiousPeriod
+    });
+  };
 }
 
-MockSirSettings.propTypes = {
+SirSettings.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string,
   }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired,
     beta: PropTypes.number.isRequired,
+    infectiousPeriod: PropTypes.number.isRequired,
   }).isRequired,
   onParamsChange: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(MockSirSettings);
+export default withStyles(styles)(SirSettings);

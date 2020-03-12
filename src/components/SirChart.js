@@ -12,15 +12,16 @@ const styles = () => ({
   root: {
     padding: 10,
   },
-  margin: {
-    top: 20,
-    right: 20,
-    bottom: 20,
-    left: 20,
-  },
 });
 
-const MockSirChart = (props) => {
+const chartMargin = {
+  top: 20,
+  right: 20,
+  bottom: 20,
+  left: 20,
+};
+
+const SirChart = (props) => {
   const { classes, params, data } = props;
   return (
     <div className={classes.root}>
@@ -28,7 +29,7 @@ const MockSirChart = (props) => {
         width={800}
         height={400}
         data={data}
-        margin={classes.margin}
+        margin={chartMargin}
       >
         <CartesianGrid stroke="#ccc" strokeDasharray={[5, 5]} />
         <Area type="monotone" dataKey="infected" stackId="1" stroke="#ff7f58" fill="#ff7f58" />
@@ -43,10 +44,9 @@ const MockSirChart = (props) => {
   );
 };
 
-MockSirChart.propTypes = {
+SirChart.propTypes = {
   classes: PropTypes.shape({
-    root: PropTypes.shape({}),
-    margin: PropTypes.shape({}),
+    root: PropTypes.string,
   }).isRequired,
   params: PropTypes.shape({
     population: PropTypes.number.isRequired,
@@ -59,4 +59,4 @@ MockSirChart.propTypes = {
   })).isRequired,
 };
 
-export default withStyles(styles)(MockSirChart);
+export default withStyles(styles)(SirChart);

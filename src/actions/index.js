@@ -5,6 +5,11 @@ export const onMockSirParamsChange = (params) => ({
   params,
 });
 
+export const onSirParamsChange = (params) => ({
+  type: actionTypes.SIR_PARAMS_CHANGE,
+  params,
+});
+
 export const onSeirParamsChange = (params) => ({
   type: actionTypes.SEIR_PARAMS_CHANGE,
   params,
