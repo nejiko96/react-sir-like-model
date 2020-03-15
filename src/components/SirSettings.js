@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import i18n from 'i18next';
 
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -28,7 +29,7 @@ class SirSettings extends Component {
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          N：人数
+          {i18n.t('sir.settings.population')}
         </Typography>
         <Slider
           value={this.state.population}
@@ -41,7 +42,7 @@ class SirSettings extends Component {
           onChange={this.handlePopulationChange}
         />
         <Typography gutterBottom>
-          β：伝達係数
+          {i18n.t('sir.settings.beta')}
         </Typography>
         <Slider
           value={this.state.beta}
@@ -53,7 +54,7 @@ class SirSettings extends Component {
           onChange={this.handleBetaChange}
         />
         <Typography gutterBottom>
-          ip：感染期間
+          {i18n.t('sir.settings.ip')}
         </Typography>
         <Slider
           value={this.state.infectiousPeriod}

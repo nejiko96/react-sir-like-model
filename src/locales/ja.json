@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "感染症数理モデル"
+  },
+  "mockSir": {
+    "title": "雑なSIRモデル",
+    "settings": {
+      "population": "人数",
+      "duration": "感染能力がある期間（日）",
+      "beta": "１日に１人から感染する人数"
+    }
+  },
+  "sir": {
+    "title": "SIRモデル",
+    "settings": {
+      "population": "N : 人数",
+      "beta": "β : 伝達係数",
+      "ip": "ip : 感染期間"
+    }
+  },
+  "seir": {
+    "title": "SEIRモデル",
+    "settings": {
+      "population": "N : 人数",
+      "beta": "β : 伝達係数",
+      "lp": "lp : 潜伏期間",
+      "ip": "ip : 感染期間",
+      "tau": "τ : 死亡率"
+    }
+  }
+}

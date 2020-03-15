@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "Disease spread models"
+  },
+  "mockSir": {
+    "title": "Mock SIR Model",
+    "settings": {
+      "population": "population",
+      "duration": "infectious period",
+      "beta": "number of infected from one person per day"
+    }
+  },
+  "sir": {
+    "title": "SIR Model",
+    "settings": {
+      "population": "N : population",
+      "beta": "β : disease transmission coefficient",
+      "ip": "ip : infectious period"
+    }
+  },
+  "seir": {
+    "title": "SEIR Model",
+    "settings": {
+      "population": "N : population",
+      "beta": "β : disease transmission coefficient",
+      "lp": "lp : latent period",
+      "ip": "ip : infectious period",
+      "tau": "τ : death rate"
+    }
+  }
+}

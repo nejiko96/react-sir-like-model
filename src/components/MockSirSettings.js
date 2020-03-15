@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import i18n from 'i18next';
 
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -28,7 +29,7 @@ class MockSirSettings extends Component {
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          人数
+          {i18n.t('mockSir.settings.population')}
         </Typography>
         <Slider
           value={this.state.population}
@@ -41,7 +42,7 @@ class MockSirSettings extends Component {
           onChange={this.handlePopulationChange}
         />
         <Typography gutterBottom>
-          感染能力がある期間（日）
+          {i18n.t('mockSir.settings.duration')}
         </Typography>
         <Slider
           value={this.state.duration}
@@ -54,7 +55,7 @@ class MockSirSettings extends Component {
           onChange={this.handleDurationChange}
         />
         <Typography gutterBottom>
-          １日に１人から感染する人数
+          {i18n.t('mockSir.settings.beta')}
         </Typography>
         <Slider
           value={this.state.beta}

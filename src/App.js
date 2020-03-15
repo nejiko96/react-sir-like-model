@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import GithubCircle from 'mdi-material-ui/GithubCircle';
@@ -26,8 +28,14 @@ const styles = (theme) => ({
 });
 
 const App = (props) => {
-  // render() {
+  const { t, i18n } = useTranslation();
   const { classes } = props;
+  const [lang, setLang] = useState('ja');
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang, i18n]);
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -36,8 +44,14 @@ const App = (props) => {
       >
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            感染症流行シミュレーター
+            {t('app.title')}
           </Typography>
+          <Button
+            color="inherit"
+            onClick={() => setLang(lang === 'en' ? 'ja' : 'en')}
+          >
+            { lang === 'en' ? 'Switch to Japanese' : '英語に切替' }
+          </Button>
           <Tooltip title="View source on Github" aria-label="View source on Github">
             <IconButton
               color="inherit"
@@ -49,11 +63,8 @@ const App = (props) => {
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
-        <Typography variant="h4">雑なSIRモデル</Typography>
         <MockSirContainer />
-        <Typography variant="h4">SIRモデル</Typography>
         <SirContainer />
-        <Typography variant="h4">SEIRモデル</Typography>
         <SeirContainer />
       </main>
     </div>
