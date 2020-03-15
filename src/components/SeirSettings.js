@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import i18n from 'i18next';
 
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -30,7 +31,7 @@ class SeirSettings extends Component {
     return (
       <div className={classes.root}>
         <Typography gutterBottom>
-          N：人数
+          {i18n.t('seir.settings.population')}
         </Typography>
         <Slider
           value={this.state.population}
@@ -43,7 +44,7 @@ class SeirSettings extends Component {
           onChange={this.handlePopulationChange}
         />
         <Typography gutterBottom>
-          β：伝達係数
+          {i18n.t('seir.settings.beta')}
         </Typography>
         <Slider
           value={this.state.beta}
@@ -55,7 +56,7 @@ class SeirSettings extends Component {
           onChange={this.handleBetaChange}
         />
         <Typography gutterBottom>
-          lp：潜伏期間
+          {i18n.t('seir.settings.lp')}
         </Typography>
         <Slider
           value={this.state.latentPeriod}
@@ -68,7 +69,7 @@ class SeirSettings extends Component {
         />
 
         <Typography gutterBottom>
-          ip：感染期間
+          {i18n.t('seir.settings.ip')}
         </Typography>
         <Slider
           value={this.state.infectiousPeriod}
@@ -80,7 +81,7 @@ class SeirSettings extends Component {
           onChange={this.handleInfectiousPeriodChange}
         />
         <Typography gutterBottom>
-          τ：死亡率
+          {i18n.t('seir.settings.tau')}
         </Typography>
         <Slider
           value={this.state.tau}

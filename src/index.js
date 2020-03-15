@@ -6,9 +6,13 @@ import { Provider } from 'react-redux';
 import App from './App';
 import reducer from './reducers';
 
+// i18n
+import initI18n from './utils/i18n';
+
 // PWA support
 import * as serviceWorker from './serviceWorker';
 
+initI18n();
 const store = createStore(reducer);
 
 render(
