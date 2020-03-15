@@ -50,7 +50,7 @@ const App = (props) => {
             color="inherit"
             onClick={() => setLang(lang === 'en' ? 'ja' : 'en')}
           >
-            { lang === 'en' ? 'Switch to Japanese' : '英語に切替' }
+            { lang === 'en' ? '日本語' : 'English' }
           </Button>
           <Tooltip title="View source on Github" aria-label="View source on Github">
             <IconButton
