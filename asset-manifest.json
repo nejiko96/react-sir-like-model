@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/react-sir-like-model/static/js/main.66f6c384.chunk.js",
-    "main.js.map": "/react-sir-like-model/static/js/main.66f6c384.chunk.js.map",
+    "main.js": "/react-sir-like-model/static/js/main.83544d45.chunk.js",
+    "main.js.map": "/react-sir-like-model/static/js/main.83544d45.chunk.js.map",
     "runtime-main.js": "/react-sir-like-model/static/js/runtime-main.56155b09.js",
     "runtime-main.js.map": "/react-sir-like-model/static/js/runtime-main.56155b09.js.map",
     "static/js/2.cb42ead7.chunk.js": "/react-sir-like-model/static/js/2.cb42ead7.chunk.js",
     "static/js/2.cb42ead7.chunk.js.map": "/react-sir-like-model/static/js/2.cb42ead7.chunk.js.map",
     "index.html": "/react-sir-like-model/index.html",
-    "precache-manifest.7e13370070ca4985cb038ea1294edb27.js": "/react-sir-like-model/precache-manifest.7e13370070ca4985cb038ea1294edb27.js",
+    "precache-manifest.040ed9975d3ef613f307bdbf9a2393aa.js": "/react-sir-like-model/precache-manifest.040ed9975d3ef613f307bdbf9a2393aa.js",
     "service-worker.js": "/react-sir-like-model/service-worker.js",
     "static/js/2.cb42ead7.chunk.js.LICENSE.txt": "/react-sir-like-model/static/js/2.cb42ead7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.56155b09.js",
     "static/js/2.cb42ead7.chunk.js",
-    "static/js/main.66f6c384.chunk.js"
+    "static/js/main.83544d45.chunk.js"
   ]
 }

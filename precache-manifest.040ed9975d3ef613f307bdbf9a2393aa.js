@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bf0605ce0942c2690035168ca12663ec",
+    "revision": "8bdab21ae8856d7e882313516c995fde",
     "url": "/react-sir-like-model/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-sir-like-model/static/js/2.cb42ead7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "25f2a7876412023481ec",
-    "url": "/react-sir-like-model/static/js/main.66f6c384.chunk.js"
+    "revision": "2c43f9ad0c6c62462ff3",
+    "url": "/react-sir-like-model/static/js/main.83544d45.chunk.js"
   },
   {
     "revision": "a72bebcfa748c16160ab",
