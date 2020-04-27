@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^10.1.0",
     "gh-pages": "^2.2.0",
     "i18next": "^19.4.3",
-    "mdi-material-ui": "^6.13.2",
+    "mdi-material-ui": "^6.14.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
