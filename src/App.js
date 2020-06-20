@@ -10,7 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import GithubCircle from 'mdi-material-ui/GithubCircle';
+import Icon from '@mdi/react'
+import { mdiGithub } from '@mdi/js';
 
 import MockSirContainer from './containers/MockSirContainer';
 import SirContainer from './containers/SirContainer';
@@ -57,7 +58,7 @@ const App = (props) => {
               color="inherit"
               href="https://github.com/nejiko96/react-sir-like-model"
             >
-              <GithubCircle fontSize="large" />
+              <Icon path={mdiGithub} size="1.5em" />
             </IconButton>
           </Tooltip>
         </Toolbar>
