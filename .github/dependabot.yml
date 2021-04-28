@@ -1,0 +1,75 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.3
+  - dependency-name: react
+    versions:
+    - 16.14.0
+  - dependency-name: react-i18next
+    versions:
+    - 11.8.10
+    - 11.8.11
+    - 11.8.13
+    - 11.8.5
+    - 11.8.6
+    - 11.8.7
+    - 11.8.8
+    - 11.8.9
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 12.6.2
+    - 12.6.3
+    - 12.7.0
+    - 12.7.1
+    - 12.7.2
+    - 12.7.3
+    - 12.8.0
+    - 12.8.1
+    - 12.8.3
+    - 13.0.0
+    - 13.0.1
+    - 13.0.10
+    - 13.0.11
+    - 13.0.16
+    - 13.0.2
+    - 13.0.6
+    - 13.0.7
+    - 13.1.1
+  - dependency-name: eslint-plugin-import
+    versions:
+    - 2.22.1
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: eslint-plugin-react
+    versions:
+    - 7.22.0
+    - 7.23.0
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+  - dependency-name: recharts
+    versions:
+    - 2.0.4
+    - 2.0.6
+    - 2.0.7
+    - 2.0.8
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.3
+    - 11.2.5
+  - dependency-name: "@testing-library/jest-dom"
+    versions:
+    - 5.11.9
