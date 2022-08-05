@@ -9,7 +9,7 @@
     "@mdi/react": "^1.6.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^13.1.9",
+    "@testing-library/user-event": "^14.4.2",
     "gh-pages": "^4.0.0",
     "i18next": "^21.8.14",
     "prop-types": "^15.7.2",
